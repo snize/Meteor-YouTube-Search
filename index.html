@@ -1,0 +1,29 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Meteor YouTube Search</title>
+</head>
+<body>
+<h1>YouTube Search</h1>
+{{> youtubeSearch}}
+</body>
+
+<template name="youtubeSearch">
+<div>
+    <form name="myForm">
+        <input type="text">
+        <input type="button" value="search" disabled>
+    </form>
+    <h2>Results</h2>
+    {{#if foo}}
+    <ul style="list-style:none;padding:0">
+        {{#each results}}
+        <li>
+            <img src="{{this.media$group.media$thumbnail.[0].url}}">
+            {{this.title.$t}}
+        </li>
+        {{/each}}
+    </ul>
+    {{/if}}
+    {{#unless foo}}<p>↑ 上から検索してください。</p>{{/unless}}
+</div>
+</template>
